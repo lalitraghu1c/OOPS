@@ -1,0 +1,54 @@
+// object of list
+{
+  "Rice": [
+    {
+      "Name": "Wild Rice",
+      "Weight": 20,
+      "Price": 20.20
+    },
+    {
+      "Name": "Polished Jasmine",
+      "Weight": 30,
+      "Price": 30.30
+    },
+    {
+      "Name": "Basmati Rice",
+      "Weight": 50,
+      "Price": 50.50
+    }
+  ],
+  "Wheat": [
+    {
+      "Name": "Logban",
+      "Weight": 30,
+      "Price": 30.30
+    },
+    {
+      "Name": "Durum",
+      "Weight": 40,
+      "Price": 40.40
+    },
+    {
+      "Name": "Sarvati",
+      "Weight": 60,
+      "Price": 60.60
+    }
+  ],
+  "Pulses": [
+    {
+      "Name": "Peas",
+      "Weight": 20,
+      "Price": 20.20
+    },
+    {
+      "Name": "Chana Dal",
+      "Weight": 50,
+      "Price": 50.50
+    },
+    {
+      "Name": "Tuwar Dal",
+      "Weight": 10,
+      "Price": 70.70
+    }
+  ]
+}
