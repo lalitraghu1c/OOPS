@@ -73,11 +73,74 @@ namespace Opps.InventoryDataManagement
                     break;
             }
         }
-
-        public void WriteJsonFile(string file)
+        public void EditInventoryData(string inventoryName)
         {
-            var json = JsonConvert.SerializeObject(inventories);
-            File.WriteAllText(file, json);
+            switch (inventoryName)
+            {
+                case "Rice":
+                    Console.Write("Enter name : ");
+                    string nameRice = Console.ReadLine();
+                    foreach (var rice in RiceList)
+                    {
+                        if (rice.Name.Equals(nameRice))
+                        {
+                            Console.Write("Enter name to edit : ");
+                            string editName = Console.ReadLine();
+                            Console.Write("Enter weight to edit : ");
+                            int editWeight = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Enter price to edit : ");
+                            double editPrice = Convert.ToDouble(Console.ReadLine());
+                            rice.Name = editName;
+                            rice.Weight = editWeight;
+                            rice.Price = editPrice;
+                        }
+                    }
+                    break;
+                case "Wheat":
+                    Console.Write("Enter name : ");
+                    string nameWheat = Console.ReadLine();
+                    foreach (var wheat in WheatList)
+                    {
+                        if (wheat.Name.Equals(nameWheat))
+                        {
+                            Console.Write("Enter name to edit : ");
+                            string editName = Console.ReadLine();
+                            Console.Write("Enter weight to edit : ");
+                            int editWeight = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Enter price to edit : ");
+                            double editPrice = Convert.ToDouble(Console.ReadLine());
+                            wheat.Name = editName;
+                            wheat.Weight = editWeight;
+                            wheat.Price = editPrice;
+                        }
+                    }
+                    break;
+                case "Pulses":
+                    Console.Write("Enter name : ");
+                    string namePulse = Console.ReadLine();
+                    foreach (var pulses in PulsesList)
+                    {
+                        if (pulses.Name.Equals(namePulse))
+                        {
+                            Console.Write("Enter name to edit : ");
+                            string editName = Console.ReadLine();
+                            Console.Write("Enter weight to edit : ");
+                            int editWeight = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Enter price to edit : ");
+                            double editPrice = Convert.ToDouble(Console.ReadLine());
+                            pulses.Name = editName;
+                            pulses.Weight = editWeight;
+                            pulses.Price = editPrice;
+                        }
+                    }
+                    break;
+                    void WriteJsonFile(string file)
+                    {
+                        var json = JsonConvert.SerializeObject(inventories);
+                        File.WriteAllText(file, json);
+                    }
+            }
+
         }
     }
 }
