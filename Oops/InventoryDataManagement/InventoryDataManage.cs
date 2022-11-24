@@ -4,32 +4,80 @@ using Oops.InventoryManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Oops.InventoryDataManagement
+namespace Opps.InventoryDataManagement
 {
     public class InventoryDataManage
     {
-        public void ReadJsonFile(string file)
+        List<Inventory> RiceList;
+        List<Inventory> WheatList;
+        List<Inventory> PulsesList;
+        InventoryData inventories;
+        public void ReadJSONFile(string file)
         {
-            var Jsondata = File.ReadAllText(file);
-            InventoryData inventories = JsonConvert.DeserializeObject<InventoryData>(Jsondata);
-            List<Inventory> RiceList = inventories.Rice;
-            Display(RiceList);
-            List<Inventory> WheatList = inventories.Wheat;
-            Display(WheatList);
-            List<Inventory> PulsesList = inventories.Pulses;
-            Display(PulsesList);
+            var jsonData = File.ReadAllText(file);
+            inventories = JsonConvert.DeserializeObject<InventoryData>(jsonData);
+            RiceList = inventories.Rice;
+            WheatList = inventories.Wheat;
+            PulsesList = inventories.Pulses;
+
         }
-        public void Display(List<Inventory> inventories)
+        public void Display()
+        {
+            Read(RiceList);
+            Read(WheatList);
+            Read(PulsesList);
+        }
+        public void Read(List<Inventory> inventories)
         {
             foreach (var data in inventories)
-
             {
-                Console.WriteLine(data.Name + "\t" + data.Weight + "\t" + data.Price + "\n");
+                Console.WriteLine(data.Name + " " + data.Weight + " " + data.Price);
             }
+            Console.WriteLine();
+        }
+
+        public void AddInventoryData(string inventoryName)
+        {
+            Inventory inventory = new Inventory();
+            switch (inventoryName)
+            {
+                case "Rice":
+                    Console.Write("Enter the name : ");
+                    inventory.Name = Console.ReadLine();
+                    Console.Write("Enter the Weight : ");
+                    inventory.Weight = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the Price");
+                    inventory.Price = Convert.ToDouble(Console.ReadLine());
+                    RiceList.Add(inventory);
+                    break;
+                case "Wheat":
+                    Console.Write("Enter the name : ");
+                    inventory.Name = Console.ReadLine();
+                    Console.Write("Enter the Weight : ");
+                    inventory.Weight = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the Price");
+                    inventory.Price = Convert.ToDouble(Console.ReadLine());
+                    WheatList.Add(inventory);
+                    break;
+                case "Pulses":
+                    Console.Write("Enter the name : ");
+                    inventory.Name = Console.ReadLine();
+                    Console.Write("Enter the Weight : ");
+                    inventory.Weight = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the Price");
+                    inventory.Price = Convert.ToDouble(Console.ReadLine());
+                    PulsesList.Add(inventory);
+                    break;
+            }
+        }
+
+        public void WriteJsonFile(string file)
+        {
+            var json = JsonConvert.SerializeObject(inventories);
+            File.WriteAllText(file, json);
         }
     }
 }

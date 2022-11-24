@@ -1,36 +1,48 @@
 ﻿using Oops.InventoryManagement;
-using Oops.InventoryDataManagement;
+using Opps.InventoryDataManagement;
 using System;
-namespace Oops
+namespace OOPSPrograms
 {
-    public class Program
+    class Program
     {
-        public static string inventoryFilePath = @"D:\Projects-Bridgelabz\Oops\Oops\InventoryManagement\Inventory.json";
-        public static string inventoryDataFilePath = @"D:\Projects-Bridgelabz\Oops\Oops\InventoryDataManagement\InventoryData.json";
 
-        public static void Main(string[] args)
+        static string jsonFilePath = @"D:\Projects-Bridgelabz\OOPS\OOPS\InventoryManagement\Inventory.json";
+        static string InventoryDataPath = @"D:\Projects-Bridgelabz\OOPS\OOPS\InventoryDataManagement\InventoryData.json";
+        static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Oops JsonFile");
-            bool condition = true;
-            while (condition)
+            InventoryDataManage manage = new InventoryDataManage();
+            bool flag = true;
+            while (flag)
             {
-                Console.WriteLine("\nWhat do you want to do?\n1. InventoryDetails\n" +
-                                  "2. InventoryData\n3. Exit");
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
+                Console.WriteLine("Welcome to the OOPS Programs");
+                Console.WriteLine(" 1. Inventory Details Management\n 2. Inventory Data Management\n 3. Add Inventory\n 4. Display");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
                 {
                     case 1:
-                        InventoryDetailsManagement inventoryDetailsManagement = new InventoryDetailsManagement();
-                        inventoryDetailsManagement.ReadJsonFile(inventoryFilePath);
+                        InventoryDetailsManagement inventory = new InventoryDetailsManagement();
+                        inventory.ReadJsonFile(jsonFilePath);
                         break;
                     case 2:
-                        InventoryDataManage manage = new InventoryDataManage();
-                        manage.ReadJsonFile(inventoryDataFilePath);
+                        manage.ReadJSONFile(InventoryDataPath);
+                        manage.Display();
+                        break;
+                    case 3:
+                        manage.ReadJSONFile(InventoryDataPath);
+                        Console.Write("Enter Inventory Name to add(Rice, Wheat, Pulse) : ");
+                        string addName = Console.ReadLine();
+                        manage.ReadJSONFile(InventoryDataPath);
+                        manage.AddInventoryData(addName);
+                        break;
+                    case 4:
+                        manage.Display();
                         break;
                     default:
-                        condition = false;
+                        flag = false;
+                        Console.WriteLine("Try with right input");
                         break;
                 }
+
             }
         }
     }
