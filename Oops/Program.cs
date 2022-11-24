@@ -17,8 +17,8 @@ namespace OOPSPrograms
             while (flag)
             {
                 Console.WriteLine("Welcome to the OOPS Programs");
-                Console.WriteLine(" 1. Inventory Details Management\n 2. Inventory Data Management\n 3. Add Inventory\n+"
-                                  + "4. Edit Inventory\n 5. Delete Inventory\n 6. Display");
+                Console.WriteLine(" 1. Inventory Details Management\n 2. Inventory Data Management\n 3. Add Inventory\n+" + 
+                                  "4. Edit Inventory\n 5. Delete Whole Inventory\n 6. Delete Selected Data\n 7. Display");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -47,11 +47,19 @@ namespace OOPSPrograms
                     case 5:
                         manage.ReadJSONFile(InventoryDataPath);
                         Console.Write("Enter Inventory's Name to Delete (Rice, Wheat, Pulses) : ");
-                        string delName = Console.ReadLine();
+                        string delAll = Console.ReadLine();
                         manage.ReadJSONFile(InventoryDataPath);
-                        manage.AllDelteInventoryData(delName);
+                        manage.AllDelteInventoryData(delAll);
                         break;
                     case 6:
+                        manage.ReadJSONFile(InventoryDataPath);
+                        Console.Write("Enter Inventory's Name to Delete (Rice, Wheat, Pulses) : ");
+                        string delName = Console.ReadLine();
+                        manage.ReadJSONFile(InventoryDataPath);
+                        manage.DeleteInventoryData(delName);
+                        Console.WriteLine("Successfully Deleted");
+                        break;
+                    case 7:
                         manage.Display();
                         break;
                     default:

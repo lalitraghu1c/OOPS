@@ -141,6 +141,66 @@ namespace Opps.InventoryDataManagement
                     }
             }
         }
+        public void DeleteInventoryData(string inventoryName)
+        {
+            switch (inventoryName)
+            {
+                case "Rice":
+                    Console.Write("Enter name to delete : ");
+                    string deleteRice = Console.ReadLine();
+                    try
+                    {
+                        foreach (var rice in RiceList)
+                        {
+                            if (rice.Name.Equals(deleteRice))
+                            {
+                                RiceList.Remove(rice);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                    break;
+                case "Wheat":
+                    Console.Write("Enter name to delete : ");
+                    string deleteWheat = Console.ReadLine();
+                    try
+                    {
+                        foreach (var wheat in WheatList)
+                        {
+                            if (wheat.Name.Equals(deleteWheat))
+                            {
+                                WheatList.Remove(wheat);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                    break;
+                case "Pulses":
+                    Console.Write("Enter name to delete : ");
+                    string deletePulse = Console.ReadLine();
+                    try
+                    {
+                        foreach (var pulse in PulsesList)
+                        {
+                            if (pulse.Name.Equals(deletePulse))
+                            {
+                                PulsesList.Remove(pulse);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                    break;
+            }
+        }
         public void AllDelteInventoryData(string inventoryName)
         {
             switch (inventoryName)
