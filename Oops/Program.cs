@@ -17,7 +17,8 @@ namespace OOPSPrograms
             while (flag)
             {
                 Console.WriteLine("Welcome to the OOPS Programs");
-                Console.WriteLine(" 1. Inventory Details Management\n 2. Inventory Data Management\n 3. Add Inventory\n 4. Edit Inventory\n 5. Display");
+                Console.WriteLine(" 1. Inventory Details Management\n 2. Inventory Data Management\n 3. Add Inventory\n+"
+                                  + "4. Edit Inventory\n 5. Delete Inventory\n 6. Display");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -31,19 +32,26 @@ namespace OOPSPrograms
                         break;
                     case 3:
                         manage.ReadJSONFile(InventoryDataPath);
-                        Console.Write("Enter Inventory Name to Add(Rice, Wheat, Pulses) : ");
+                        Console.Write("Enter Inventory's Name to Add (Rice, Wheat, Pulses) : ");
                         string addName = Console.ReadLine();
                         manage.ReadJSONFile(InventoryDataPath);
                         manage.AddInventoryData(addName);
                         break;
                     case 4:
                         manage.ReadJSONFile(InventoryDataPath);
-                        Console.Write("Enter Inventory;s Name to Edit(Rice, Wheat, Pulses) : ");
+                        Console.Write("Enter Inventory's Name to Edit (Rice, Wheat, Pulses) : ");
                         string editName = Console.ReadLine();
                         manage.ReadJSONFile(InventoryDataPath);
                         manage.EditInventoryData(editName);
                         break;
                     case 5:
+                        manage.ReadJSONFile(InventoryDataPath);
+                        Console.Write("Enter Inventory's Name to Delete (Rice, Wheat, Pulses) : ");
+                        string delName = Console.ReadLine();
+                        manage.ReadJSONFile(InventoryDataPath);
+                        manage.AllDelteInventoryData(delName);
+                        break;
+                    case 6:
                         manage.Display();
                         break;
                     default:
