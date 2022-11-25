@@ -1,0 +1,26 @@
+{
+  "Lalit": [
+    {
+      "Name": "Byjus",
+      "NoOfShares": 50,
+      "SharePerPrice": 50
+    },
+    {
+      "Name": "Extramakrs",
+      "NoOfShares": 60,
+      "SharePerPrice": 60
+    }
+  ],
+  "Sidd": [
+    {
+      "Name": "Byjus",
+      "NoOfShares": 90,
+      "SharePerPrice": 90
+    },
+    {
+      "Name": "Vedantu",
+      "NoOfShares": 80,
+      "SharePerPrice": 80
+    }
+  ]
+}

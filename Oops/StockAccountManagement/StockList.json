@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Byjus",
+    "NumberOfShare": 100,
+    "SharePrice": 10
+  },
+  {
+    "Name": "Extramarks",
+    "NumberOfShare": 200,
+    "SharePrice": 20
+  },
+  {
+    "Name": "Vedantu",
+    "NumberOfShare": 300,
+    "SharePrice": 30
+  }
+]
